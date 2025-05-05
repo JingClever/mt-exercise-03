@@ -36,33 +36,8 @@ Train a model:
 
 The training process can be interrupted at any time, and the best checkpoint will always be saved. It is also possible to continue training from there later on.
 
-# Steps for Windows users
-
-This repo relies on Bash scripts (.sh files), which do not run natively on Windows (CMD or PowerShell).  
-Here are two ways to make it work:
-
-Option 1: Use WSL (Windows Subsystem for Linux)
-Enable WSL and install Ubuntu: `wsl --install`
-
-Open Ubuntu from your Start menu.
-
-Inside the Ubuntu terminal, follow the exact same steps as shown above for macOS/Linux:
-```
-git clone https://github.com/marpng/mt-exercise-4
-cd mt-exercise-4
-./scripts/make_virtualenv.sh
-./scripts/download_install_packages.sh
-./scripts/train.sh
-```     
-
-Option 2: Manually run steps without shell scripts
-If you can't use WSL, you can recreate the process manually using PowerShell or CMD
-Create and activate a virtual environment:
-```
-python -m venv venv
-.\venv\Scripts\activate
-pip install -r requirements.txt
-```
-Manually download and install Moses and other dependencies (you'll need to look inside scripts/download_install_packages.sh to replicate its steps).
-
-Run the training logic by manually executing the code inside train.sh, or porting it to a Python script or notebook.
+# Revision on the current code
+- Create two config `.yaml` files for pre- and post-normalization 
+- Revise code in `training.py` in `JoeyNMT` for running in CPU.
+- Revise `train.sh` in `mt-exercise-03` to train the model on CPU on a M2 with 8 cores (Edit the model name to train different models).
+- Create `extract_ppl.py` and `extract_ppl.sh` to extract validation ppl, draw a table and a plot.
