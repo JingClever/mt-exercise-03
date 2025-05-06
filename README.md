@@ -20,6 +20,11 @@ Clone this repository or your fork thereof in the desired place:
 Create a new virtualenv that uses Python 3. Please make sure to run this command outside of any virtual Python environment:
 
     ./scripts/make_virtualenv.sh
+    
+Considering NumPy version is not compatible here, we should downgrade the NumPy version.
+    
+    source venvs/torch3/bin/activate
+    pip install "numpy<2" --force-reinstall
 
 **Important**: Then activate the env by executing the `source` command that is output by the shell script above.
 
